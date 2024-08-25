@@ -1,0 +1,8 @@
+package com.belajar.ecommerce.models.repositories;
+
+import com.belajar.ecommerce.models.entities.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, String> {
+
+}
