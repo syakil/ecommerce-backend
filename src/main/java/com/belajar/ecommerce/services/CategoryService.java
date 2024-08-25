@@ -2,10 +2,12 @@ package com.belajar.ecommerce.services;
 
 import com.belajar.ecommerce.models.entities.Category;
 import com.belajar.ecommerce.models.repositories.CategoryRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class CategoryService {
 
     @Autowired

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "tb_r_order")
 public class Order implements Serializable {
     @Id
-    private String id;
+    @Column(unique = true)
     private String OrderNumber;
     @JoinColumn
     @ManyToOne
