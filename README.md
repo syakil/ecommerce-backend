@@ -1,5 +1,4 @@
-# E-Commerce Application
-
+# E-Commerce Application ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.3-brightgreen)
 This is a modern e-commerce web application built using **Spring Boot 3.3.3** and **Java 17**. The application leverages several dependencies and technologies to provide a robust backend for managing products, customers, and orders.
 
 ## Features
