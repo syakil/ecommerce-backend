@@ -21,23 +21,22 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<ResponseData<User>> register(@RequestBody UserDto userDto) {
-        User entity = modelMapper.map(userDto, User.class);
-        entity = userService.saveUser(entity);
+
         ResponseData<User> responseData = new ResponseData<>();
-        responseData.setStatus(true);
-        responseData.getMessages().add("User has been registered");
-        responseData.setData(entity);
-        return ResponseEntity.ok(responseData);
+        try{
+            User entity = modelMapper.map(userDto, User.class);
+            entity = userService.save(entity);
+            responseData.setStatus(true);
+            responseData.getMessages().add("User has been registered");
+            responseData.setData(entity);
+            return ResponseEntity.ok(responseData);
+        }catch (Exception e) {
+            responseData.setStatus(false);
+            responseData.getMessages().add(e.getMessage());
+            responseData.setData(null);
+            return ResponseEntity.badRequest().body(responseData);
+        }
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<ResponseData<User>> findByEmail(@PathVariable String email) {
-        User entity = userService.findByEmail(email);
-        ResponseData<User> responseData = new ResponseData<>();
-        responseData.setStatus(true);
-        responseData.getMessages().add("User found");
-        responseData.setData(entity);
-        return ResponseEntity.ok(responseData);
-    }
 
 }
